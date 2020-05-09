@@ -157,14 +157,3 @@ print hash1['nomes']            #retorna ["Eduardo","Outro","OutroAluno"]
 nome.capitalize                 #deixa a primeira letra maiuscula
 
 =end
-
-numero = gets.split.
-i=0
-x=0
-while(i!=10)
-  if(numero[i]>=10 && numero[i]<=20)
-    x+=1
-  end
-  i+=1
-end
-puts x
