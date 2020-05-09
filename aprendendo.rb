@@ -155,5 +155,11 @@ print hash1['nomes']            #retorna ["Eduardo","Outro","OutroAluno"]
 #################### Curiosidade ####################
 
 nome.capitalize                 #deixa a primeira letra maiuscula
+
 gets.to_s.strip                 #não pega o \n quando eu vou utilizar uma variavel string
+
+total = 500
+puts "dinheiro em reais %0.02f" % total.round(2)
+#dessa maneira o numero de casas decimais vai ser igual a 2 (500.00)
+
 =end
