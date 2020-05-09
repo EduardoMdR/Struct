@@ -79,10 +79,10 @@ git hub
 (inicializar com README)
 
 git clone https://git(url)
-git add array.rb		salva localmente
-git commit -m "Array"		adiciona commit
-git status			ve status do git
-git push			manda para o site
+git add array.rb				salva localmente
+git commit -m "Array"				adiciona commit
+git status					ve status do git
+git push					manda para o site
 
 git add hash.rb
 git status
@@ -98,12 +98,12 @@ F2
 
 array(listas)
 
-trainees= ["aaa","bbb"]		                criar array
-trainees.push('ddd")		                  adicionar no final
+trainees= ["aaa","bbb"]		           	criar array
+trainees.push('ddd")		           	adicionar no final
 trainees.insert(2,"ccc")	                insere na posição 2
-trainees.delete_at(3)		                  deleta posição 3
-trainees.pop			                        deleta o ultimo elemento
-trainees.shift			                      deleta primeiro elemento
+trainees.delete_at(3)		                deleta posição 3
+trainees.pop			                deleta o ultimo elemento
+trainees.shift			                deleta primeiro elemento
 
 for trainee in traiinees
 	puts trainee
@@ -112,22 +112,22 @@ trainees.each do |trainee|
 	puts trainee
 end
 
-aluno[:idade] = 20		                    symbol(imutavel)
+aluno[:idade] = 20	                  	symbol(imutavel)
 aluno[:nome] = "Eduardo"
 
 puts aluno.values (ou keys)
 
 aluno.delete(:idade)
 
-aluno2 = {			posso inicar hash com valores
+aluno2 = {					posso inicar hash com valores
 :nome =>"aaa", 
 :idade => 21
 }
 
 
-aluno2.each do |key, value|	              não precisa ser key e values
-	puts key		                            mas utiliza isso pra ficar mais
-	puts value		                          intiutivo
+aluno2.each do |key, value|	              	não precisa ser key e values
+	puts key		                mas utiliza isso pra ficar mais
+	puts value		                intiutivo
 end
 
 alunos ={}
@@ -151,7 +151,7 @@ for numero in numeros
 		contador += 1
 	end
 end
-puts "Existe #{contador}                  numeros dentro do intervalo [10,20] e #{qtd-contador}
+puts "Existe #{contador}                  	numeros dentro do intervalo [10,20] e #{qtd-contador}
 
 lista = [
 ['A','T'],['T','A']['T','A']['C','G']
@@ -160,10 +160,3 @@ lista = [
 for item in lista
 	print ("#{item}\n)
 end
-
-
-
-
-
-
-
