@@ -155,5 +155,5 @@ print hash1['nomes']            #retorna ["Eduardo","Outro","OutroAluno"]
 #################### Curiosidade ####################
 
 nome.capitalize                 #deixa a primeira letra maiuscula
-
+gets.to_s.strip                 #não pega o \n quando eu vou utilizar uma variavel string
 =end
