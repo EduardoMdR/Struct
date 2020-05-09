@@ -17,7 +17,7 @@ aleatorio = rand(4)
 print "#{sobremesa[0][aleatorio]}]."
 somar += sobremesa[1][aleatorio]
 
-print "Total #{somar}."
+print "Total: R$%0.02f." % somar.round(2)           # .round() serve para definir as casas decimais
 
 =begin A maneira certa de fazer o exercicio seria utilizando hash
 # No caso era seria a inicialização correta do hash #
