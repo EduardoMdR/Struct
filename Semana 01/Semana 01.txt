@@ -1,0 +1,162 @@
+# Este é um resumo do conteudo visto na primeira semana
+
+######################################## aula 01 ########################################
+irb
+idade = 20
+puts "A idade do aluno é #{idade}"
+puts "A idade do aluno é #{19+1}"
+so faz isso utilizando aspas duplas
+so faz isso utilizando aspas duplas
+
+puts 'A idade do aluno é '
+
+print "Digite seu nome: "
+nome = gets
+print "Digite sua idade: "
+idade = gets.to_i
+idade += 5
+print "Seu nome é #{nome}"
+print "Sua idade é #{idade}"
+
+get.split
+
+aprender linux cd/ls/rn/mkdir/rmdir/entre outros
+sudo apt.get(linux)
+
+Git
+
+git init (criar pasta vazia)
+code aula.rb (criar)
+git status(ver status)
+git add aula.rb (salvar)
+git commit -m "first commit" (tenho que fazer commit toda vez que salvo)
+git log
+git add . (salva todas as alterações)
+git rm aula.rb (apagar)
+git checkout .....(codigo que me deu quando salvei)
+ou
+git checkout aula.rb
+
+git branch voumodificarcoisas (criar um novo diretorio para poder mecher nele)
+git checkout voumodificarcoisas
+bash do ubunto
+github desktop
+
+git branch -D voumodificarcoisas(apagar)
+
+
+git push (mandar isso de fomar remota para outras pessoas poderem acessar)
+
+git clone (url)baixar as coisas desse urk no meu computador (ex:https://github.com/.....)
+
+
+######################################## Aula 02 ########################################
+
+irb		(utiliza no terminal para entrar em ruby)
+
+operadores relacionais (== > >= < <= ^ !=)
+
+operador logico (and or not/!)
+
+condicionais (if unless case) #posso utilisar else no case
+0..1 (intervalo fechado entre 0 e 1)
+0...1 (não inclui o ultimo numero)
+
+nil significa nada
+
+metodo/função
+
+estruturas de repetição(while/ until/ loop do/ for)
+loop do
+	break if .....
+end
+
+numero = gets.split()
+print numero
+
+######################################## Aula 03 ########################################
+git hub
+(inicializar com README)
+
+git clone https://git(url)
+git add array.rb				salva localmente
+git commit -m "Array"				adiciona commit
+git status					ve status do git
+git push					manda para o site
+
+git add hash.rb
+git status
+git commit -m "Hash"
+
+git push
+username:
+passord:
+
+vsCode
+Ctrl - D
+F2
+
+array(listas)
+
+trainees= ["aaa","bbb"]		           	criar array
+trainees.push('ddd")		           	adicionar no final
+trainees.insert(2,"ccc")	                insere na posição 2
+trainees.delete_at(3)		                deleta posição 3
+trainees.pop			                deleta o ultimo elemento
+trainees.shift			                deleta primeiro elemento
+
+for trainee in traiinees
+	puts trainee
+end
+trainees.each do |trainee|
+	puts trainee
+end
+
+aluno[:idade] = 20	                  	symbol(imutavel)
+aluno[:nome] = "Eduardo"
+
+puts aluno.values (ou keys)
+
+aluno.delete(:idade)
+
+aluno2 = {					posso inicar hash com valores
+:nome =>"aaa", 
+:idade => 21
+}
+
+
+aluno2.each do |key, value|	              	não precisa ser key e values
+	puts key		                mas utiliza isso pra ficar mais
+	puts value		                intiutivo
+end
+
+alunos ={}
+alunos['nomes'] = ["aaa","bbb","ccc","ddd"]
+alunos['idades'] = 20
+ou alunos['idade'] = [20,19,21,42]
+puts ("\n\n #{alunos}")
+
+alunos.each do|key,idade|
+	puts key
+	puts value
+end
+
+
+numeros = gets.split
+qtd = numeros.count
+contador = 0
+for numero in numeros
+	case numero.to_i
+	when 10..20
+		contador += 1
+	end
+end
+puts "Existe #{contador}                  	numeros dentro do intervalo [10,20] e #{qtd-contador}
+
+lista = [
+['A','T'],['T','A']['T','A']['C','G']
+]
+
+for item in lista
+	print ("#{item}\n)
+end
