@@ -1,7 +1,7 @@
 # Struct
-<h3>Destinado para publicar os exemplos feito na empresa;
+<h3>Destinado para publicar os exemplos feito na empresa;</h3>
 
-<h3>Os conteúdos estão todos ordenados de acordo com sua semana de aplicação e as semanas contém os exercicios para o aprendizado do conteúdo em pauta:
+<h3>Os conteúdos estão todos ordenados de acordo com sua semana de aplicação e as semanas contém os exercicios para o aprendizado do conteúdo em pauta:</h3>
 
   Semana 01 - Aprendendo a programar (linguagem utilizada - Ruby)
   
