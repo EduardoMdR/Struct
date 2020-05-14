@@ -1,0 +1,139 @@
+// exercicio 1.1.md
+//https://dbdiagram.io/d/5ebc60c639d18f5553ff2a2d
+
+Table Professores as P{
+    id_teacher int [pk, not null]
+    //id poderia ter 'increment'
+    name_teacher varchar [not null]
+    cpf_teacher varchar
+    rg_teacher varchar
+    genre_teacher varchar
+    email_teacher varchar
+    birthday_teacher date
+    planguage varchar
+    // planguage poderia ser uma tabela
+    years_experience int
+}
+
+Table Alunos as A{
+    id_student int [pk, not null, increment]
+    name_student varchar [not null]
+    cpf_student varchar
+    rg_student varchar
+    birthday_student date
+    address_student varchar
+    fk_teacher int [ref: > P.id_teacher]
+    fk_cityr int [ref: > C.id_city]
+
+}
+
+Table Cidades as C {
+  id_city int [pk, not null]
+  city_name varchar
+  adress varchar
+  fk_state int [ref: - E.id_state]
+}
+ 
+Table Estados as E{
+   id_state int [pk, not null]
+   state_name varchar
+}
+
+
+
+//exercicio 1.2.md
+//https://dbdiagram.io/d/5ebc774e39d18f5553ff2af5
+
+Table Consultorio{
+  id_clinic int [pk]
+  fk_room int [ref: < S.id_room]
+}
+Table Dentistas as D{
+    id_dentist int [pk, not null]
+    name_dentist varchar [not null]
+    cpf_dentist varchar
+    rg_dentist varchar
+    genre_dentist varchar
+    email_dentist varchar
+    birthday_dentist date
+    years_experience int
+    CRO_cod_dentist int [not null]
+    // não sei como funciona o codígo CRO
+    fk_specialization int [ref: < E.id_specialization]
+    fk_room int [ref: > S.id_room]
+}
+Table Especializacao as E{
+  id_specialization in [pk]
+  description_specialization varchar
+}
+Table Salas as S{
+  id_room int [pk, not null]
+  number_room int
+}
+
+Table Clientes as C{
+  id_client id [pk, not null]
+  name_client varchar [not null]
+}
+//Dentista_Cliente = consulta
+Table Dentista_Cliente{
+  id_appointment int [pk]
+  fk_dentist int [ref: > D.id_dentist]
+  fk_client int [ref: > C.id_client]
+  fk_room int [ref: - S.id_room]
+  date_appointment timestamp
+}
+
+
+
+// exercicio 1.3.md
+// https://dbdiagram.io/d/5ebca6ad39d18f5553ff2c23
+
+Table Voo{
+  id_voo int [pk, not null]
+  exitTime_voo time
+  exitTimeExpected_voo time
+  arrivalTime time
+  arrivalTimeExpected_voo time
+  fk_pilot int [ref: > P.id_pilot]
+  fk_aiplane int [ref: > A.id_airplane]
+  fk_origin int [ref: > O.id_origin]
+  fk_arrival int [ref: > Ch.id_arrival]
+}
+Table Cidades as C{
+  id_city int [pk, not null]
+  name_city varchar
+  state_city varchar
+}
+Table Piloto as P{
+  id_pilot int [pk, not null]
+  name_pilot varchar [not null]
+  cpf_pilot varchar
+  rg_pilot varchar
+  email_pilot varchar
+  birthday_pilot varchar
+  ANACcod_pilot int
+}
+Table Passageiros as P{
+  id_passenger int [pk, not null]
+  name_passenger varchar [not null]
+  cpf_passenger varchar
+  rg_passenger varchar
+  email_passenger varchar
+  birthday_passenger varchar
+  fk_voo int [ref: > Voo.id_voo]
+}
+Table Aviao as A{
+  id_airplane int [pk, not null]
+  airplaneModel int [not null]
+  registrationNumber int
+  qtdSeat_airplane int
+}
+Table Origem as O{
+  id_origin int [pk]
+  fk_city int [ref: > C.id_city]
+}
+Table Chegada as Ch{
+  id_arrival int [pk]
+  fk_city int [ref: > C.id_city]
+}
