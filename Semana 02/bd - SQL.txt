@@ -1,0 +1,90 @@
+/* Exercicio 2.1*/
+
+CREATE DATABASE hollywood;
+
+CREATE TABLE Movies(
+	id_movie SERIAL,
+	movie_name varchar(40),
+	realese_year date,
+	PRIMARY KEY (id_movie)
+);
+CREATE TABLE Actors(
+	id_actor SERIAL,
+	actor_name varchar(40),
+	gender varchar(7),
+	PRIMARY KEY (id_actor)
+);
+CREATE TABLE Characters(
+	id_characters SERIAL,
+	character_name varchar(30),
+  	actor_id int,
+    	movie_id int,
+    	PRIMARY KEY (id_characters),
+	FOREIGN KEY (actor_id) REFERENCES Actors (id_actor),
+	FOREIGN KEY (movie_id) REFERENCES Movies (id_movie)
+);
+
+
+/* ***********************************************************************************
+INSERT INTO Movies 
+	(movie_name, realese_year) 
+Values 
+	(’Django Unchained’, ’2013-01-18’), 
+	(’Inception’, ’2010-08-06’), 
+	(’Pulp Fiction’, ’1995-02-18’); 
+
+INSERT INTO Actors 
+	(actor_name, gender) 
+Values 
+	(’Leonardo DiCaprio’, ’Male’), 
+	(’Samuel L. Jackson’, ’Male’),
+	(’Uma Turman’, ’Female’);
+	
+INSERT INTO Characters
+	(character_name, actor_id, movie_id) 
+Values 
+	(’Calvin Candle’, 1, 1),
+	(’Cobb’, 1, 2), 
+	(’Jules Winnﬁeld’, 2, 3);
+
+*********************************************************************************** */
+
+INSERT INTO Movies 
+	(movie_name, realese_year)
+Values
+	('La vita è bella','1997-02-05'),
+	('lord of rings fellowship','2002-01-01');
+
+INSERT INTO Actors 
+	(actor_name, gender)
+Values 
+	('Roberto Benigni','Male'),
+	('Ian McKellen','Male');
+
+INSERT INTO Characters
+	(character_name, actor_id, movie_id)
+Values
+	('Guido Orefice',4,4),
+	('Gandalf',5,5);
+
+
+/* *********************************************************************************** */
+/* Exercicio 2.2 */
+
+Select * from Movies WHERE realese_year < 2011;
+Select * FROM Characters WHERE character_name LIKE 'C%';
+
+
+/* *********************************************************************************** */
+/* Exercicio 2.3 */
+UPDATE Actors set actor_name = 'Uma Thurman' where actor_name = 'Uma Turman';
+
+
+/* *********************************************************************************** */
+/* Exercicio 2.4 */
+ALTER TABLE Actors Add birth_date date;
+UPDATE Actors SET birth_date = '1974-11-1' WHERE actor_name = 'Leonardo DiCaprio';
+
+
+/* *********************************************************************************** */
+/* Exercicio 2.5 */
