@@ -24,7 +24,6 @@ CREATE TABLE Characters(
 	FOREIGN KEY (movie_id) REFERENCES Movies (id_movie)
 );
 
-
 /* ***********************************************************************************
 INSERT INTO Movies 
 	(movie_name, realese_year) 
@@ -46,7 +45,6 @@ Values
 	(’Calvin Candle’, 1, 1),
 	(’Cobb’, 1, 2), 
 	(’Jules Winnﬁeld’, 2, 3);
-
 *********************************************************************************** */
 
 INSERT INTO Movies 
@@ -71,17 +69,19 @@ Values
 /* *********************************************************************************** */
 /* Exercicio 2.2 */
 
-Select * from Movies WHERE realese_year < 2011;
+Select * from Movies WHERE realese_year < '2011-01-01';
 Select * FROM Characters WHERE character_name LIKE 'C%';
 
 
 /* *********************************************************************************** */
 /* Exercicio 2.3 */
+
 UPDATE Actors set actor_name = 'Uma Thurman' where actor_name = 'Uma Turman';
 
 
 /* *********************************************************************************** */
 /* Exercicio 2.4 */
+
 ALTER TABLE Actors Add birth_date date;
 UPDATE Actors SET birth_date = '1974-11-1' WHERE actor_name = 'Leonardo DiCaprio';
 
