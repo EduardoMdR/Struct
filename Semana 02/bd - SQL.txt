@@ -88,3 +88,8 @@ UPDATE Actors SET birth_date = '1974-11-1' WHERE actor_name = 'Leonardo DiCaprio
 
 /* *********************************************************************************** */
 /* Exercicio 2.5 */
+
+SELECT Actors.actor_name, Characters.character_name 
+FROM Actors
+LEFT JOIN Characters ON Actors.id_actor = Characters.id_characters
+ORDER BY Actors.actor_name;
