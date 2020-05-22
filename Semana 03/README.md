@@ -1,4 +1,5 @@
-<h3> 3 - Models, Controllers e Rotas </h3>
-<h4> 3.1 - O que são models e migrations </h4>
-<h4> 3.2 - As controllers e seus métodos </h4>
-<h4> 3.3 - Rotas, protocolos http e parâmetros </h4>
+<h3> 2 - Ruby e Ruby on Rails </h3>
+<h4> 3.1 - Programação orientada a objetos </h4>
+<h4> 3.2 - Estruturas de dados do Ruby </h4>
+<h4> 3.3 - O que é um framework </h4>
+<h4> 2.4 - Rails
