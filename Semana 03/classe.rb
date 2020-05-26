@@ -15,7 +15,6 @@ class Person
     end
 
     def showPersonData(nome,cpf,cel,idade)
-        # puts Account.lista.map{ |account| {name: account.name, cpf: account.cpf, phone: account.phone, age: account.age}}
         puts "\nDados Pessoas"
         puts "Nome     : #{nome}"
         puts "CPF      : #{cpf}"
@@ -208,7 +207,7 @@ def menuPoupanca(contaPoupanca)
         when 5
             contaPoupanca.showPersonData(contaPoupanca.name, contaPoupanca.cpf, contaPoupanca.phone, contaPoupanca.age)
         when 6
-            corrente.showAcconutData(contaPoupanca.numberAccount, contaPoupanca.password)
+            contaPoupanca.showAcconutData(contaPoupanca.numberAccount, contaPoupanca.password)
         when 7
             puts "Saindo da conta"
             verdade = 0
