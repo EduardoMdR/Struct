@@ -11,7 +11,7 @@ corrente[1] = ContaCorrente.new('Kratos', '11111111111', '111111111', 21, 300, '
 contaPoupanca[1] = Poupanca.new('Chaves', '22222222222', '222222222', 21, 100, '7777', 'shanduiche')
 contaPoupanca[2] = Poupanca.new('Madruga Sr.', '33333333333', '333333333', 21, -300, '8888', 'aluguel')
 corrente[2] = ContaCorrente.new('Florinda', '44444444444', '444444444', 21, 600, '9999', 'girafales')
-i = 2
+k = 2
 j = 2
 
 verbose = 1
@@ -35,7 +35,7 @@ while verbose == 1
         puts Poupanca.lista.map {|contaPoupanca| {name: contaPoupanca.name, cpf: contaPoupanca.cpf, conta: contaPoupanca.numberAccount}}
         
     when 3
-        i += 1
+        k += 1
         puts "Criar conta corrente"
         puts "Digite seu nome"
         nome = gets.to_s.strip
@@ -51,7 +51,7 @@ while verbose == 1
         puts "O numero de sua conta vai ser : #{conta}"
         puts "Digite sua senha"
         senha = gets.to_s
-        corrente[i] = ContaCorrente.new(nome, cpf, telefone, idade, saldo, conta, senha)
+        corrente[k] = ContaCorrente.new(nome, cpf, telefone, idade, saldo, conta, senha)
         
     when 4
         j += 1
@@ -99,9 +99,11 @@ while verbose == 1
                 verdade = 0
             elsif (acesso < ContaCorrente.count) and (acesso >= 0)
                 menuCorrente(corrente[acesso])
+                verdade = 0
             elsif acesso < (ContaCorrente.count + Poupanca.count)
                 puts acesso-ContaCorrente.count
                 menuPoupanca(contaPoupanca[acesso-ContaCorrente.count])
+                verdade = 0
             end
         end
     when 6
@@ -111,6 +113,3 @@ while verbose == 1
         puts "Digite uma opção valida"
     end
 end
-
-# arrumar, quando entro na opção 5 e volto para o menu principal,
-# não consigo adicionar mais nenhuma conta
