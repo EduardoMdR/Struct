@@ -20,14 +20,31 @@ class Turma
 
     def addAluno(nota,matricula)
         @alunos << criaAlunos(nota,matricula)
-    end
+    end 
     private
         def criaAlunos(nota_recebida, matricula_recebida)
             return {nota: nota_recebida, matricula: matricula_recebida}
         end
 end
 
-qtdC1 = 0               # qtdC1 é a quantidade de aprovados em Cálculo 1
+def TurmaAluno(materia, numeroAlunos)
+    aprova = 0
+    puts "Em #{materia}"
+    matricula = 200000 +rand(9999)
+    puts "Digite a nota que o alune de matricula #{matricula} tirou :"
+    nota = gets.to_f
+    pessoinha = Turma.new(materia, nota, matricula)
+    aprova += pessoinha.aprovados(nota)
+    for i in 1..(numeroAlunos-1)
+        matricula = 200000 +rand(9999)
+        puts "Digite a nota que o alune de matricula #{matricula} tirou :"
+        nota = gets.to_f
+        pessoinha.addAluno(nota, matricula)
+        aprova += pessoinha.aprovados(nota)
+    end
+    return aprova
+end
+
 qtdC2 = 0
 qtdC3 = 0
 qtdF1 = 0
@@ -49,216 +66,67 @@ numeroAlunos = 4 + rand(16)
 # pelo fato da contagem começar em zero, eu tenho que somar mais um numero
 numeroAlunos += 1
 puts "Numero de alunos por turma : #{numeroAlunos}"
+totalAlunos = numeroAlunos. * turmas
 
-totalAlunos = 0
-if (turmas > 0)
-    puts "Em Cálculo 1"
-    matricula = 200000 +rand(9999)
-    puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-    nota = gets.to_f
-    calculo1 = Turma.new('Cálculo 1',nota, matricula)
-    totalAlunos += 1 
-    qtdC1 += calculo1.aprovados(nota)
-    for i in 1..(numeroAlunos-1)
-        matricula = 200000 +rand(9999)
-        puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-        nota = gets.to_f
-        calculo1.addAluno(nota, matricula)
-        totalAlunos += 1 
-        qtdC1 += calculo1.aprovados(nota)
-    end
-end
 
-if (turmas > 1)
-    puts "Em Cálculo 2"
-    matricula = 200000 +rand(9999)
-    puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-    nota = gets.to_f
-    calculo2 = Turma.new('Cálculo 2',nota, matricula)
-    totalAlunos += 1 
-    qtdC2 += calculo2.aprovados(nota)
-    for i in 1..(numeroAlunos-1)
-        matricula = 200000 +rand(9999)
-        puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-        nota = gets.to_f
-        calculo2.addAluno(nota, matricula)
-        totalAlunos += 1 
-        qtdC2 += calculo2.aprovados(nota)
-    end
-end
-
-if (turmas > 2)
-    puts "Em Cálculo 3"
-    matricula = 200000 +rand(9999)
-    puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-    nota = gets.to_f
-    calculo3 = Turma.new('Cálculo 3',nota, matricula)
-    totalAlunos += 1 
-    qtdC3 += calculo3.aprovados(nota)
-    for i in 1..(numeroAlunos-1)
-        matricula = 200000 +rand(9999)
-        puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-        nota = gets.to_f
-        calculo3.addAluno(nota, matricula)
-        totalAlunos += 1 
-        qtdC3 += calculo3.aprovados(nota)
-    end
-end
-
-if (turmas > 3)
-    puts "Em Física 1"
-    matricula = 200000 +rand(9999)
-    puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-    nota = gets.to_f
-    fisica1 = Turma.new('Física 1',nota, matricula)
-    totalAlunos += 1 
-    qtdF1 += fisica1.aprovados(nota)
-    for i in 1..(numeroAlunos-1)
-        matricula = 200000 +rand(9999)
-        puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-        nota = gets.to_f
-        fisica1.addAluno(nota, matricula)
-        totalAlunos += 1 
-        qtdF1 += fisica1.aprovados(nota)
-    end
-end
-
-if (turmas > 4)
-    puts "Em Física 2"
-    matricula = 200000 +rand(9999)
-    puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-    nota = gets.to_f
-    fisica2 = Turma.new('Física 2',nota, matricula)
-    totalAlunos += 1 
-    qtdF2 += fisica2.aprovados(nota)
-    for i in 1..(numeroAlunos-1)
-        matricula = 200000 +rand(9999)
-        puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-        nota = gets.to_f
-        fisica2.addAluno(nota, matricula)
-        totalAlunos += 1 
-        qtdF2 += fisica2.aprovados(nota)
-    end
-end
-
-if (turmas > 5)
-    puts "Em Estruturas de Dados"
-    matricula = 200000 +rand(9999)
-    puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-    nota = gets.to_f
-    estruturaDados = Turma.new('Estruturas de Dados',nota, matricula)
-    totalAlunos += 1 
-    qtdED += estruturaDados.aprovados(nota)
-    for i in 1..(numeroAlunos-1)
-        matricula = 200000 +rand(9999)
-        puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-        nota = gets.to_f
-        estruturaDados.addAluno(nota, matricula)
-        totalAlunos += 1 
-        qtdED += estruturaDados.aprovados(nota)
-    end
-end
-
-if (turmas > 6)
-    puts "Em Algoritmos e Programação de Computadores"
-    matricula = 200000 +rand(9999)
-    puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-    nota = gets.to_f
-    algoritmosP = Turma.new('Algoritmos e Programação de Computadores',nota, matricula)
-    totalAlunos += 1 
-    qtdAPC += algoritmosP.aprovados(nota)
-    for i in 1..(numeroAlunos-1)
-        matricula = 200000 +rand(9999)
-        puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-        nota = gets.to_f
-        algoritmosP.addAluno(nota, matricula)
-        totalAlunos += 1 
-        qtdAPC += algoritmosP.aprovados(nota)
-    end
-end
-
-if (turmas > 7)
-    puts "Em Técnicas de Programação 1"
-    matricula = 200000 +rand(9999)
-    puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-    nota = gets.to_f
-    tecnicas1 = Turma.new('Técnicas de Programação 1',nota, matricula)
-    totalAlunos += 1 
-    qtdTP1 += tecnicas1.aprovados(nota)
-    for i in 1..(numeroAlunos-1)
-        matricula = 200000 +rand(9999)
-        puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-        nota = gets.to_f
-        tecnicas1.addAluno(nota, matricula)
-        totalAlunos += 1 
-        qtdTP1 += tecnicas1.aprovados(nota)
-    end
-end
-
-if (turmas > 8)
-    puts "Em Sistemas Digitais"
-    matricula = 200000 +rand(9999)
-    puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-    nota = gets.to_f
-    sistemasDigitais = Turma.new('Sistemas Digitais',nota, matricula)
-    totalAlunos += 1 
-    qtdSD += sistemasDigitais.aprovados(nota)
-    for i in 1..(numeroAlunos-1)
-        matricula = 200000 +rand(9999)
-        puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-        nota = gets.to_f
-        sistemasDigitais.addAluno(nota, matricula)
-        totalAlunos += 1 
-        qtdSD += sistemasDigitais.aprovados(nota)
-    end
-end
-
-if (turmas > 9)
-    puts "Em Eletromagnetismo"
-    matricula = 200000 +rand(9999)
-    puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-    nota = gets.to_f
-    eletromagnetismo = Turma.new('Eletromagnetismo ',nota, matricula)
-    totalAlunos += 1 
-    qtdEL += eletromagnetismo.aprovados(nota)
-    for i in 1..(numeroAlunos-1)
-        matricula = 200000 +rand(9999)
-        puts "Digite a nota que o aluno de matricula #{matricula} tirou :"
-        nota = gets.to_f
-        eletromagnetismo.addAluno(nota, matricula)
-        totalAlunos += 1 
-        qtdEL += eletromagnetismo.aprovados(nota)
-    end
-end
-
-puts "--------------------------------------------------------------------------------------------------"
-puts "Em Cáldulo 1                                  #{qtdC1} alunos foram aprovados, ou seja, #{(qtdC1.to_f/numeroAlunos.to_f).round(4) * 100}%"
+qtdC1 = TurmaAluno('Cálculo 1',numeroAlunos)
 if turmas > 1
-    puts "Em Cáldulo 2                                  #{qtdC2} alunos foram aprovados, ou seja, #{(qtdC2.to_f/numeroAlunos.to_f).round(4) * 100}%"
+    qtdC2 = TurmaAluno('Cálculo 2',numeroAlunos)
 end
 if turmas > 2
-    puts "Em Cáldulo 3                                  #{qtdC3} alunos foram aprovados, ou seja, #{(qtdC3.to_f/numeroAlunos.to_f).round(4) * 100}%"
+    qtdC3 = TurmaAluno('Cálculo 3',numeroAlunos)
 end
 if turmas > 3
-    puts "Em Física 1                                   #{qtdF1} alunos foram aprovados, ou seja, #{(qtdF1.to_f/numeroAlunos.to_f).round(4) * 100}%"
+    qtdF1 = TurmaAluno('Física 1',numeroAlunos)
 end
 if turmas > 4
-    puts "Em Física 2                                   #{qtdF2} alunos foram aprovados, ou seja, #{(qtdF2.to_f/numeroAlunos.to_f).round(4) * 100}%"
+    qtdF2 = TurmaAluno('Física 2',numeroAlunos)
 end
 if turmas > 5
-    puts "Em Estruturas de Dados                        #{qtdED} alunos foram aprovados, ou seja, #{(qtdED.to_f/numeroAlunos.to_f).round(4) * 100}%"
+    qtdED = TurmaAluno('Estruturas de Dados  ',numeroAlunos)
 end
 if turmas > 6
-    puts "Em Algoritmos e Programação de Computadores   #{qtdAPC} alunos foram aprovados, ou seja, #{(qtdAPC.to_f/numeroAlunos.to_f).round(4) * 100}%"
+    qtdAPC = TurmaAluno('Algoritmos e Programação de Computadores',numeroAlunos)
 end
 if turmas > 7
-    puts "Em Técnicas de Programação 1                  #{qtdTP1} alunos foram aprovados, ou seja, #{(qtdTP1.to_f/numeroAlunos.to_f).round(4) * 100}%"
+    qtdTP1 = TurmaAluno('Técnicas de Programação 1  ',numeroAlunos)
 end
 if turmas > 8
-    puts "Em Sistemas Digitais                          #{qtdSD} alunos foram aprovados, ou seja, #{(qtdSD.to_f/numeroAlunos.to_f).round(4) * 100}%"
+    qtdSD = TurmaAluno('Sistemas Digitais  ',numeroAlunos)
 end
 if turmas > 9
-    puts "Em Eletromagnetismo                           #{qtdEL} alunos foram aprovados, ou seja, #{(qtdEL.to_f/numeroAlunos.to_f).round(4) * 100}%"
+    qtdEL = TurmaAluno('Eletromagnetismo ',numeroAlunos)
+end
+
+
+puts "--------------------------------------------------------------------------------------------------"
+puts "Em Cáldulo 1                                  #{qtdC1} alunos foram aprovados, ou seja, #{((qtdC1.to_f/numeroAlunos.to_f) * 100).round(2)}%"
+if turmas > 1
+    puts "Em Cáldulo 2                                  #{qtdC2} alunos foram aprovados, ou seja, #{((qtdC2.to_f/numeroAlunos.to_f) * 100).round(2)}%"
+end
+if turmas > 2
+    puts "Em Cáldulo 3                                  #{qtdC3} alunos foram aprovados, ou seja, #{((qtdC3.to_f/numeroAlunos.to_f) * 100).round(2)}%"
+end
+if turmas > 3
+    puts "Em Física 1                                   #{qtdF1} alunos foram aprovados, ou seja, #{((qtdF1.to_f/numeroAlunos.to_f) * 100).round(2)}%"
+end
+if turmas > 4
+    puts "Em Física 2                                   #{qtdF2} alunos foram aprovados, ou seja, #{((qtdF2.to_f/numeroAlunos.to_f) * 100).round(2)}%"
+end
+if turmas > 5
+    puts "Em Estruturas de Dados                        #{qtdED} alunos foram aprovados, ou seja, #{((qtdED.to_f/numeroAlunos.to_f) * 100).round(2)}%"
+end
+if turmas > 6
+    puts "Em Algoritmos e Programação de Computadores   #{qtdAPC} alunos foram aprovados, ou seja, #{((qtdAPC.to_f/numeroAlunos.to_f) * 100).round(2)}%"
+end
+if turmas > 7
+    puts "Em Técnicas de Programação 1                  #{qtdTP1} alunos foram aprovados, ou seja, #{((qtdTP1.to_f/numeroAlunos.to_f) * 100).round(2)}%"
+end
+if turmas > 8
+    puts "Em Sistemas Digitais                          #{qtdSD} alunos foram aprovados, ou seja, #{((qtdSD.to_f/numeroAlunos.to_f) * 100).round(2)}%"
+end
+if turmas > 9
+    puts "Em Eletromagnetismo                           #{qtdEL} alunos foram aprovados, ou seja, #{((qtdEL.to_f/numeroAlunos.to_f) * 100).round(2)}%"
 end
 puts "--------------------------------------------------------------------------------------------------"
 puts "No total, #{((qtdC1+qtdC2+qtdC3+qtdF1+qtdF2+qtdED+qtdAPC+qtdTP1+qtdSD+qtdEL).to_f/totalAlunos.to_f).round(4) * 100}% da faculdade foi aprovada esse ano"
@@ -267,13 +135,10 @@ puts "Total de alunos : #{totalAlunos}"
 #print Turma.listas
 
 =begin
-
 caso queira fazer os teste de uma maneira mais facil (porém as notas seriam aleatórias) basta tropca 
-
     puts "Digite a nota que o alune de matricula #{matricula} tirou :"
     nota = gets.to_f
 por
     nota = rand(11)
     puts "O aluno de matricula #{matricula} tirou : #{nota}"
-
 =end
