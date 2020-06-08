@@ -1,0 +1,53 @@
+Passo a passo para criar um CRUD em Rails
+(https://blog.usejournal.com/lets-build-taskbot-a-simple-crud-app-using-ruby-on-rails-part-1-a9710097c1c3)
+
+
+##### Passo 1: criar um projeto rails #####
+rails new exercicio
+cd exercicio
+
+
+##### Passo 2: configurar o bd #####
+# Arrumar para utilizar o PostgreSql como Banco de dados
+
+
+##### Passo 3: Criar as Tabelas #####
+rails g resource Album name:string artist:string
+rails g resource Song name:string explicit:boolean album:references genre:string
+# verificar se rodas as pastas foram criadas
+
+
+##### Passo 4: Atribuir ao banco e verificar rotas #####
+rake db:migrate
+# schema.rb vai ser criado
+
+# Caso der algum erro de que o banco ja existe por eu ter criado ele em algum outro projeto
+# rake db:drop db:create db:migrate
+
+rails routes
+# verificar se as rotas estão certas
+
+
+##### Passo 5: Preparar alguns dados no banco #####
+Ex: em seed.rb{
+album1 = Album.create(name: "Animals", artist: "Pink Floyd")
+album2 = Album.create(name: "Californication", artist: "RHCP")
+Song.create(name: "Dogs", album: album1, genre:"Rock")
+Song.create(name: "Californication", album: album2, genre:"Rock")
+}
+rake db:seed
+# No console do ruby, posso confirmar se foi criado
+
+
+# todo passo feito para albums também será feito para as musicas
+##### Passo 6: READ #####
+# Em album_controller.rb
+# index.html.erb
+
+##### Passo 7: SHOW #####
+
+##### Passo 8: CREATE #####
+
+##### Passo 9: UPDATE #####
+
+##### Passo 10: DELETE #####
