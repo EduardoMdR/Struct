@@ -51,3 +51,6 @@ rake db:seed
 ##### Passo 9: UPDATE #####
 
 ##### Passo 10: DELETE #####
+
+
+##### Após estar criado, é preciso mecher no css #####
