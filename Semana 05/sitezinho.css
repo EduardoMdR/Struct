@@ -1,0 +1,23 @@
+body {
+    background-image: url('https://images8.alphacoders.com/679/thumb-1920-679478.jpg');
+    width: 100%;
+    min-height: auto;
+}
+#btn{
+  border-radius: 36px;
+  border: 3px solid #ffa07a;
+  color: #ffa07a;
+}
+.ola{
+  min-height: 700px;
+}
+.borda{
+  border: 1px solid rgb(255, 160, 122,0.5);
+  border-top: 0;
+  border-bottom: 0;
+}
+/* 
+https://www.thewallpaperkid.com/web/wallpapers/millenium-falcon/1920x1080.jpg
+https://i.redd.it/ihoxdlxnodpy.jpg
+https://i.pinimg.com/originals/1c/9b/d1/1c9bd12c96a4d4c3d8e960ec69b48cd1.jpg
+*/
