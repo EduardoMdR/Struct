@@ -1,0 +1,168 @@
+- Sorcery (device outra utilizada, mas não utilizamos ela)
+
+copiar 
+gem 'sorcery' -> bundle install
+
+rails generate sorcery:install
+
+rails g controller user
+
+
+Resumo do dia
+
+- Revi um pouco sobre os conceitos estudados, estava com um pouco de duvida;
+- Tivemos um aula bem esclarecedora, deu pra entender um pouco mais sobre os assuntos que eu tava com duvida semana passada;
+- Pretendo aplicar esse contúdo para aprender melhor e possivelmete começar o projeto final.
+
+##### Passo 1: configurar sorcery e o bd #####
+Em Gemfile:
+# Fazer aplicações de login no site (fazer bundle install)
+gem 'sorcery'
+
+Rodar:
+rails generate sorcery:install
+(vai criar alguns arquivos)
+
+em migratin sorcery
+	t.string :name 
+
+rails db:migrate
+(fazer o banco funcionar)
+
+
+##### Passo 2: configurar o controller #####
+Rodar: 
+rails g controller users
+
+em users_controller
+    def new
+        @user = User.new
+    end
+  
+    def create
+        @user = User.new(users_params)
+        if @user.save
+            redirect_to root_path
+        else
+            render 'new'
+        end
+    end
+    private
+    def users_params
+        params.require('user').permit(:name, :email, :password)
+    end
+
+
+##### Passo 3: Configurar rotas #####
+em routes.rb
+
+  root "application#homepage"
+
+  scope 'users' do
+    get 'novo_usuario', to: 'users#new', as: :new_user
+    post 'novo_usuario', to: 'users#create'
+  end
+
+##### Passo 4: configurara view #####
+criar new.html.erb em app>view>user
+
+<div class="container">
+    <h2 class="text-center"> Novo Usuário</h2>
+    <%= form_with model: @user, url: :new_user, method: :post do |form| %>
+    
+    <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+        <%= form.label :email %>
+        <%= form.email_field :email, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+        <%= form.label :password %>
+        <%= form.password_field :password, class: 'form-control' %>
+    </div>
+
+    <%= form.submit "Cadastrar usuário", class: 'btn btn-outline-primary' %>
+  <% end %>
+</div>
+
+##### Passo 5: Controlar o Login #####
+rails g controller sessions
+
+
+##### Passo 6: Configurar a session #####
+em session>new.html.erb
+<<div class="container">
+  <h2 class="text-center"> Login </h2>
+  <%= form_with  url: :login, method: :post do |form| %>
+    <div class="form-group">
+      <%= form.label :email %>
+      <%= form.email_field :email, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= form.label :password %>
+      <%= form.password_field :password, class: 'form-control' %>
+    </div>
+
+    <%= form.submit "Logar", class: 'btn btn-outline-primary' %>
+  <% end %>
+</div>
+
+em session_controller
+    def new
+    end
+  
+    def create
+        if login(params[:email], params[:password])
+            flash[:success] = "Logado com sucesso"
+            redirect_to root_path
+        else
+            flash[:error] = "Credenciais inválidas"
+            render 'new'
+        end
+    end
+  
+    def destroy
+        logout
+        redirect_to root_path
+    end
+
+fazer rotas da session
+  scope 'auth' do
+    get 'login', to: 'session#new', as: :login
+    post 'login', to: 'session#create'
+    delete 'logout', to: 'session#destroy', as: :logout
+  end
+
+##### Passo extra: Colocar navbar no site #####
+crio uma pasta chamada app>view>application>homepage.html.erb
+
+em layouts>application.html.erb eu insiro
+<%= render 'layouts/navbar' %>
+
+e crio em layouts um arquivo chamado _navbar.html.erb
+insiro o menu aqui
+
+
+Criar uma branch chamada develop, e commitar nela
+
+Fazer os usuarios, artistas e usuarios
+listas playlist e albums
+artistas tem uma model de albums
+e o usuario tem as models de playlist
+fazer uma classe usuario e uma classe artista
+
+bundle exec figaro install
+
+
+users = belong_to
+
+
+
+rails g controller sessions
+
+
+
+
+
