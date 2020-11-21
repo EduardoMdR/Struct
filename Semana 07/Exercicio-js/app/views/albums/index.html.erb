@@ -1,0 +1,20 @@
+<p id="notice"><%= flash[:notice] %></p>
+<%= javascript_include_tag "custom" %>
+
+<h1> Albums </h1>
+
+<table>
+  <% @albums.each do |album| %>
+    <tr>
+      <td><div id="album-<%= album.id %>"><%= album.name %></div></td>
+      <td><%= album.artist %></td>
+      <td><i class="fa fa-check-circle p-1" onclick="changeColor1('album-<%= album.id %>')" ></i></td>
+      <td><i class="fa fa-minus-circle p-1" onclick="changeColor2('album-<%= album.id %>')"></i></td>
+      <td><i class="fa fa-ban p-1" onclick="changeColor3('album-<%= album.id %>')"></i></td>
+      <td><%= button_to 'Show', album_path(album), method: 'get'%></td>
+      <td><%= button_to 'Edit', edit_album_path(album), method: 'get'%></td>
+      <td><%= button_to 'Remove', album_path(album), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+
+  <% end %>
+</table>
+<p> <%= link_to "Add a NewAlbum", new_album_path %> </p>

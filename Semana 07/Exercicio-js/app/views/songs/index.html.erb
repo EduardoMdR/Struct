@@ -1,0 +1,19 @@
+<p id="notice"><%= flash[:notice] %></p>
+<%= javascript_include_tag "custom" %>
+
+<h1> Songs </h1>
+
+<table>
+  <% @songs.each do |song| %>
+    <tr>
+      <td><div style="visibility: hidden;" id="song-<%= song.id %>"><i class="fa fa-heart p-1"></i></div></td>
+      <td class="p-1"><%= link_to song.name, song_path(song) %></td>
+      <td class="p-1"><%= link_to song.album.name, album_path(song.album) %></td>
+      <td><i class="fa fa-thumbs-up p-1" onclick="unhide('song-<%= song.id %>')"></i></td>
+      <td><i class="fa fa-thumbs-o-up p-1" onclick="hide('song-<%= song.id %>')"></i></td>
+      <td><%= button_to 'Edit', edit_song_path(song), method: 'get'%></td>
+      <td><%= button_to 'Remove', song_path(song), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<p> <%= link_to "Add a New Song", new_song_path %> </p>
