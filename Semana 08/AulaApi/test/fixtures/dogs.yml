@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  old: 1
+  like: MyText
+
+two:
+  name: MyString
+  old: 1
+  like: MyText
