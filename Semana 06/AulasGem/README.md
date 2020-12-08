@@ -1,24 +1,9 @@
-# README
+# Gem Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Exemplos de algumas gems que são bem comum de ser utilizadas no Rails, sendo elas:
 
-Things you may want to cover:
+- [Sorcery](https://github.com/Sorcery/sorcery) (para autenticação)
 
-* Ruby version
+- [Figaro](https://github.com/laserlemon/figaro) (controle de variaveis que não quero compartilhar)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Também foi utilizado uma ferramenta do Rails chamado [Active Storage](https://github.com/rails/rails/tree/master/activestorage)(para upload de arquivos)
